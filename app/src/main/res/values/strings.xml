@@ -4,4 +4,5 @@
     <string name="save">保存</string>
     <string name="reset">重置</string>
     <string name="newCards">新建卡组</string>
+    <string name="cards_wh">卡组库</string>
 </resources>

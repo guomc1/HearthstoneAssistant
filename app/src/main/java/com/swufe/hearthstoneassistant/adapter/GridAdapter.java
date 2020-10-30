@@ -46,22 +46,15 @@ public class GridAdapter extends ArrayAdapter{
         TextView textView = itemView.findViewById(R.id.cardName);
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_launcher_foreground)
-                .showImageForEmptyUri(R.drawable.ic_launcher_background)
-                .showImageOnFail(R.drawable.ic_launcher_background)
-                .cacheInMemory(false)
+                .showImageOnLoading(R.mipmap.kabei)
+                .showImageForEmptyUri(R.mipmap.notfound)
+                .showImageOnFail(R.mipmap.notfound)
+                .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .build();
         imageLoader.displayImage("https://media.services.zam.com/v1/media/byName/hs/cards/enus/"+ id +".png",
                 imageView,options);
         textView.setText(card.getName());
         return itemView;
-    }
-
-    private Drawable getDrawable(byte[] pic){
-        Bitmap bitmap = BitmapFactory.decodeByteArray(pic, 0, pic.length, null);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-        Drawable drawable = bitmapDrawable;
-        return drawable;
     }
 }
