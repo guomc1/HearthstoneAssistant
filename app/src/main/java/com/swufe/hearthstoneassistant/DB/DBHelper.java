@@ -31,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "attack int," +
                 "cost int," +
                 "health int," +
+                "pic bolb not null," +
                 "cardText text)");
     }
 

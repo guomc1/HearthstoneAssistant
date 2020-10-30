@@ -3,37 +3,249 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="210dp"
+
+    <LinearLayout
+        android:layout_width="233dp"
         android:layout_height="match_parent"
-        android:cacheColorHint="#00000000"
-        android:columnWidth="90dp"
-        android:drawSelectorOnTop="false"
-        android:fadeScrollbars="true"
-        android:fadingEdge="none"
-        android:fadingEdgeLength="10dp"
-        android:fastScrollEnabled="true"
-        android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:listSelector="#00000000"
-        android:numColumns="auto_fit"
-        android:scrollbars="none"
-        android:stackFromBottom="true"
-        android:stretchMode="columnWidth"
-        android:transcriptMode="alwaysScroll"
-        android:verticalSpacing="10dp" />
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/cardClassGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--中立-->
+            <RadioButton
+                android:id="@+id/NEUTRAL"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--法师-->
+            <RadioButton
+                android:id="@+id/MAGE"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--猎人-->
+            <RadioButton
+                android:id="@+id/HUNTER"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--德鲁伊-->
+            <RadioButton
+                android:id="@+id/DRUID"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--圣骑士-->
+            <RadioButton
+                android:id="@+id/PALADIN"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--牧师-->
+            <RadioButton
+                android:id="@+id/PRIEST"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/cardClassGroup2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--潜行者-->
+            <RadioButton
+                android:id="@+id/ROGUE"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--萨满-->
+            <RadioButton
+                android:id="@+id/SHAMAN"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--术士-->
+            <RadioButton
+                android:id="@+id/WARLOCK"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--战士-->
+            <RadioButton
+                android:id="@+id/WARRIOR"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--恶魔猎手-->
+            <RadioButton
+                android:id="@+id/DEMONHUNTER"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/costGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/cost0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <RadioButton
+                android:id="@+id/cost1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <RadioButton
+                android:id="@+id/cost2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/cost3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/cost4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/cost5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/cost6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rarityGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--免费-->
+            <RadioButton
+                android:id="@+id/FREE"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--普通-->
+            <RadioButton
+                android:id="@+id/COMMON"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--稀有-->
+            <RadioButton
+                android:id="@+id/RARE"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--史诗-->
+           <RadioButton
+                android:id="@+id/EPIC"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--传说-->
+            <RadioButton
+                android:id="@+id/LEGENDARY"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/typeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--随从-->
+            <RadioButton
+                android:id="@+id/MINION"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--法术-->
+            <RadioButton
+                android:id="@+id/SPELL"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--武器-->
+            <RadioButton
+                android:id="@+id/WEAPON"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <!--英雄-->
+            <RadioButton
+                android:id="@+id/HERO"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="233dp"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:columnWidth="90dp"
+            android:drawSelectorOnTop="false"
+            android:fadeScrollbars="true"
+            android:fadingEdge="none"
+            android:fadingEdgeLength="10dp"
+            android:fastScrollEnabled="true"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:listSelector="#00000000"
+            android:numColumns="auto_fit"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:transcriptMode="alwaysScroll"
+            android:verticalSpacing="10dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/cardsName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/newCards" />
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/cardsNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cardsNum" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/save"/>
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/reset"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

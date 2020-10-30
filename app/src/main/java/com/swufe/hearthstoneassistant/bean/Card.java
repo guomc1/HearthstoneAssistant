@@ -5,19 +5,20 @@ import java.util.Arrays;
 public class Card {
     private String id;
     private String name;
-    private String text;
-    private String flavor;
-    private String artist;
-    private String cardClass;
-    private String faction;
-    private String rarity;
-    private String type;
-    private String set;
-    private String durability;
+    private String text;    //卡牌说明
+    private String flavor;  //趣味介绍
+    private String artist;  //画家
+    private String cardClass;   //类别*
+    private String faction; //派系
+    private String rarity;  //稀有度*
+    private String type;    //卡牌类型*
+    private String set;     //所属卡包
+    private String durability;  //武器耐久
+    private byte[] pic;
     private int dbfId;
-    private int attack;
-    private int cost;
-    private int health;
+    private int attack;     //攻击
+    private int cost;       //费用*
+    private int health;     //生命
 
     public String getId() {
         return id;
@@ -139,6 +140,13 @@ public class Card {
         this.health = health;
     }
 
+    public byte[] getPic() {
+        return pic;
+    }
+
+    public void setPic(byte[] pic) {
+        this.pic = pic;
+    }
 
     @Override
     public int hashCode() {

@@ -15,7 +15,7 @@ public class MainActivity extends FragmentActivity {
     private RadioGroup radioGroup;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-    private RadioButton rbtHome,rbtInfo,rbtSetting;
+    private RadioButton rbtHome,rbtInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class MainActivity extends FragmentActivity {
         rbtInfo = findViewById(R.id.warehouse);
 
         radioGroup = findViewById(R.id.bottomGroup);
+        rbtHome.setChecked(true);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.swufe.hearthstoneassistant.bean.Card;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CardManager {
@@ -37,6 +38,7 @@ public class CardManager {
             values.put("dbfId", card.getDbfId());
             values.put("attack", card.getAttack());
             values.put("cost", card.getCost());
+            values.put("pic","");
             values.put("health", card.getHealth());
             values.put("cardText", card.getText());
             db.insert(tbname, null, values);
@@ -67,6 +69,7 @@ public class CardManager {
                 String cardSet = cursor.getString(cursor.getColumnIndex("cardSet"));
                 String durability = cursor.getString(cursor.getColumnIndex("durability"));
                 String cardText = cursor.getString(cursor.getColumnIndex("cardText"));
+                byte[] pic = cursor.getBlob(cursor.getColumnIndex("pic"));
                 int dbfId = cursor.getInt(cursor.getColumnIndex("dbfId"));
                 int attack = cursor.getInt(cursor.getColumnIndex("attack"));
                 int cost = cursor.getInt(cursor.getColumnIndex("cost"));
@@ -88,6 +91,7 @@ public class CardManager {
                 card.setAttack(attack);
                 card.setCost(cost);
                 card.setHealth(health);
+                card.setPic(pic);
 
                 list.add(card);
                 cursor.moveToNext();
@@ -102,5 +106,19 @@ public class CardManager {
     public void deleteAll(){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.delete(tbname,null,null);
+    }
+
+
+    public void addPic(HashMap<String,byte[]> map){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        for(String str:map.keySet()){
+            ContentValues values = new ContentValues();
+            values.put("pic",map.get(str));
+            db.update(tbname,values,"cardId=?",new String[] { str });
+        }
+
+        db.close();
+
     }
 }

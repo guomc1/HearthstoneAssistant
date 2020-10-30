@@ -1,16 +1,29 @@
 package com.swufe.hearthstoneassistant.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.swufe.hearthstoneassistant.R;
 import com.swufe.hearthstoneassistant.bean.Card;
 
+
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class GridAdapter extends ArrayAdapter{
@@ -21,7 +34,7 @@ public class GridAdapter extends ArrayAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(final int position, final View convertView, ViewGroup parent){
         View itemView = convertView;
 
         if(itemView == null){
@@ -32,14 +45,18 @@ public class GridAdapter extends ArrayAdapter{
         }
 
         Card card = (Card) getItem(position);
-        TextView title = itemView.findViewById(R.id.name);
-        TextView detail = itemView.findViewById(R.id.text);
+        ImageView imageView = itemView.findViewById(R.id.pic);
+        TextView textView = itemView.findViewById(R.id.cardName);
 
-        title.setText(card.getName());
-        detail.setText(card.getText());
-
+        textView.setText(card.getName());
+        imageView.setImageResource(R.drawable.ic_launcher_background);
         return itemView;
     }
 
-
+    private Drawable getDrawable(byte[] pic){
+        Bitmap bitmap = BitmapFactory.decodeByteArray(pic, 0, pic.length, null);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+        Drawable drawable = bitmapDrawable;
+        return drawable;
+    }
 }

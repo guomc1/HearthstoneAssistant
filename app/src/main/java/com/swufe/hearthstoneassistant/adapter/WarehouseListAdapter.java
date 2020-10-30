@@ -8,31 +8,33 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.swufe.hearthstoneassistant.R;
+
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter {
+public class WarehouseListAdapter extends ArrayAdapter{
 
-    public ListAdapter(Context context, int resource, List<String> list){
+    public WarehouseListAdapter(Context context, int resource, List<String> list){
         super(context,resource,list);
     }
 
+
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         View itemView = convertView;
 
         if(itemView == null){
             itemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item_layout,
+                    R.layout.wh_list_item_layout,
                     parent,
                     false);
         }
 
-        String str = (String) getItem(position);
-        TextView title = itemView.findViewById(R.id.list_item);
-        TextView num = itemView.findViewById(R.id.num);
+        String str = (String)getItem(position);
 
-        title.setText(str.split(",")[1]);
-        num.setText(str.split(",")[2] + "✖");
+        TextView textView = itemView.findViewById(R.id.wh_list_item);
+
+        textView.setText(str);
+
         return itemView;
     }
 }
