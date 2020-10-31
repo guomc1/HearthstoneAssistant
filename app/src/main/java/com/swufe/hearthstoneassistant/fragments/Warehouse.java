@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +33,9 @@ public class Warehouse extends Fragment implements AdapterView.OnItemClickListen
     private List<String> list;
     private HashMap<String,String> map;
     private WarehouseListAdapter warehouseListAdapter;
+    private TextView textView;
+    private AssetManager mgr;
+    private Typeface tf;
     AlertDialog.Builder builder;
 
     @Nullable
@@ -41,6 +47,10 @@ public class Warehouse extends Fragment implements AdapterView.OnItemClickListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mgr = getActivity().getAssets();
+        tf = Typeface.createFromAsset(mgr, "fonts/yingbikaishu.ttf");
+        textView = getView().findViewById(R.id.kazuliebiao);
+        textView.setTypeface(tf);
         listView = getView().findViewById(R.id.warehouse_listView);
         listView.setOnItemClickListener(this);
         listView.setOnItemLongClickListener(this);
@@ -75,6 +85,11 @@ public class Warehouse extends Fragment implements AdapterView.OnItemClickListen
                 .setPositiveButton("是", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                        sp = getActivity().getSharedPreferences("cards", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.remove((String)listView.getItemAtPosition(position));
+                        editor.apply();
                         warehouseListAdapter.remove(listView.getItemAtPosition(position));
                     }
                 })

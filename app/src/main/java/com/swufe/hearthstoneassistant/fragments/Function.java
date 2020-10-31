@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -56,7 +58,7 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
     private ListView listView;  //卡组
     private short cardsNum; //卡组包含的卡牌数
     private EditText cardsName; //卡组名
-    private TextView cardsNumText;  //卡组数显示框
+    private TextView cardlist,cardsNumText;  //卡组数显示框
     private GridAdapter gridAdapter;
     private ListAdapter listAdapter;
     private Handler handler;
@@ -67,10 +69,12 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
     private List<String> strList;
     private List<Card> cardsList;
     private FragmentManager fragmentManager;
-    private RadioGroup cardClassGroup1,cardClassGroup2,costGroup,rarityGroup,typeGroup;
-    private String cardClass,rarity,type;
+    private RadioGroup cardClassGroup1,cardClassGroup2,costGroup,rarityGroup;
+    private String cardClass,rarity;
     private short cost;
-    private RadioButton NEUTRALBut,cost0But,FREEBut,MINIONBut;
+    private AssetManager mgr;
+    private Typeface tf;
+    private RadioButton NEUTRALBut,cost0But,FREEBut;
 
     @Nullable
     @Override
@@ -83,28 +87,30 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
         super.onActivityCreated(savedInstanceState);
 
         fragmentManager = getFragmentManager();
+        mgr = getActivity().getAssets();
+        tf = Typeface.createFromAsset(mgr, "fonts/yingbikaishu.ttf");
+        cardlist = getView().findViewById(R.id.kapailiebiao);
+        cardlist.setTypeface(tf);
         map = new HashMap<>();
         strList = new LinkedList<>();
         cardsNum = 0;
         cardsNumText = getView().findViewById(R.id.cardsNum);
         cardsName = getView().findViewById(R.id.cardsName);
+        cardsName.setTypeface(tf);
         cardClassGroup1 = getView().findViewById(R.id.cardClassGroup1);
         cardClassGroup2 = getView().findViewById(R.id.cardClassGroup2);
         costGroup = getView().findViewById(R.id.costGroup);
         rarityGroup = getView().findViewById(R.id.rarityGroup);
-        typeGroup = getView().findViewById(R.id.typeGroup);
+
         NEUTRALBut = getView().findViewById(R.id.NEUTRAL);
         NEUTRALBut.setChecked(true);
-        cost0But = getView().findViewById(R.id.cost0);
+        cost0But = getView().findViewById(R.id.cost1);
         cost0But.setChecked(true);
         FREEBut = getView().findViewById(R.id.FREE);
         FREEBut.setChecked(true);
-        MINIONBut = getView().findViewById(R.id.MINION);
-        MINIONBut.setChecked(true);
         cardClass = "NEUTRAL";
         cost = 1;
         rarity = "FREE";
-        type = "MINION";
 
         cardClassGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -226,26 +232,6 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
             }
         });
 
-        typeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
-                    case R.id.MINION:
-                        type = "MINION";
-                        break;
-                    case R.id.SPELL:
-                        type = "SPELL";
-                        break;
-                    case R.id.WEAPON:
-                        type = "WEAPON";
-                        break;
-                    case R.id.HERO:
-                        type = "HERO";
-                        break;
-                }
-                setGridView();
-            }
-        });
 
         resetBut = getView().findViewById(R.id.reset);
         resetBut.setOnClickListener(new View.OnClickListener() {
@@ -479,7 +465,7 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
         if(cost == 6){
             for(Card card:cardsList){
                 if(card.getCardClass().equals(cardClass) && card.getCost() >= cost
-                        && card.getRarity().equals(rarity) && card.getType().equals(type)){
+                        && card.getRarity().equals(rarity)){
                     list.add(card);
                 }
             }
@@ -487,7 +473,7 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
         else {
             for (Card card : cardsList) {
                 if (card.getCardClass().equals(cardClass) && card.getCost() == cost
-                        && card.getRarity().equals(rarity) && card.getType().equals(type)) {
+                        && card.getRarity().equals(rarity)) {
                     list.add(card);
                 }
             }

@@ -6,8 +6,23 @@
 
     <LinearLayout
         android:layout_width="233dp"
+        android:background="@mipmap/kapailiebiaobeijing"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/kapailiebiao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="@color/darkviolet"
+            android:text="@string/cardlist" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark" />
 
         <RadioGroup
             android:id="@+id/cardClassGroup1"
@@ -15,47 +30,74 @@
             android:layout_marginTop="8dp"
             android:layout_height="35dp"
             android:gravity="center"
+            android:layout_marginLeft="5dp"
             android:orientation="horizontal">
             <!--中立-->
             <RadioButton
                 android:id="@+id/NEUTRAL"
+                android:gravity="center"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/zhongli"
+                android:drawableStart="@mipmap/zhongli"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--法师-->
             <RadioButton
                 android:id="@+id/MAGE"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/fashi"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/fashi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--猎人-->
             <RadioButton
                 android:id="@+id/HUNTER"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/lieren"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/lieren"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--德鲁伊-->
             <RadioButton
                 android:id="@+id/DRUID"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/deluyi"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/deluyi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--圣骑士-->
             <RadioButton
                 android:id="@+id/PALADIN"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/shengqishi"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/shengqishi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--牧师-->
             <RadioButton
                 android:id="@+id/PRIEST"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="4dp"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/mushi"
+                android:drawableStart="@mipmap/mushi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </RadioGroup>
@@ -64,183 +106,228 @@
             android:layout_width="match_parent"
             android:layout_marginTop="8dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
             android:gravity="center"
             android:orientation="horizontal">
             <!--潜行者-->
             <RadioButton
                 android:id="@+id/ROGUE"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/qianxingzhe"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="7dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/qianxingzhe"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--萨满-->
             <RadioButton
                 android:id="@+id/SHAMAN"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/saman"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="7dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/saman"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--术士-->
             <RadioButton
                 android:id="@+id/WARLOCK"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/shushi"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="7dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/shushi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--战士-->
             <RadioButton
                 android:id="@+id/WARRIOR"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="7dp"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/zhanshi"
+                android:drawableStart="@mipmap/zhanshi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--恶魔猎手-->
             <RadioButton
                 android:id="@+id/DEMONHUNTER"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/emolieshou"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="7dp"
+                android:background="@drawable/my_selector"
+                android:drawableStart="@mipmap/emolieshou"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </RadioGroup>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark" />
+
         <RadioGroup
             android:id="@+id/costGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
+            android:background="@drawable/my_selector"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/cost0"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong0"
+                android:drawableStart="@mipmap/feiyong0"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
             <RadioButton
                 android:id="@+id/cost1"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong1"
+                android:scaleX="1.5"
+                android:background="@drawable/my_selector"
+                android:scaleY="1.5"
+                android:drawableStart="@mipmap/feiyong1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
             <RadioButton
                 android:id="@+id/cost2"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong2"
+                android:drawableStart="@mipmap/feiyong2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <RadioButton
                 android:id="@+id/cost3"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong3"
+                android:drawableStart="@mipmap/feiyong3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <RadioButton
                 android:id="@+id/cost4"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong4"
+                android:drawableStart="@mipmap/feiyong4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <RadioButton
                 android:id="@+id/cost5"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong5"
+                android:drawableStart="@mipmap/feiyong5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <RadioButton
                 android:id="@+id/cost6"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/feiyong6"
+                android:drawableStart="@mipmap/feiyong6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
         </RadioGroup>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark" />
+
         <RadioGroup
             android:id="@+id/rarityGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <!--免费-->
             <RadioButton
                 android:id="@+id/FREE"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="9dp"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/jingdian"
+                android:drawableStart="@mipmap/jingdian"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--普通-->
             <RadioButton
                 android:id="@+id/COMMON"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="9dp"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/putong"
+                android:drawableStart="@mipmap/putong"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--稀有-->
             <RadioButton
                 android:id="@+id/RARE"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:paddingLeft="9dp"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/xiyou"
+                android:drawableStart="@mipmap/xiyou"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--史诗-->
            <RadioButton
                 android:id="@+id/EPIC"
+               android:scaleX="1.5"
+               android:scaleY="1.5"
+               android:paddingLeft="9dp"
+               android:background="@drawable/my_selector"
                style="@style/RadioButtonStyle"
-               android:background="@mipmap/shishi"
+               android:drawableStart="@mipmap/shishi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <!--传说-->
             <RadioButton
                 android:id="@+id/LEGENDARY"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:background="@drawable/my_selector"
                 style="@style/RadioButtonStyle"
-                android:background="@mipmap/chuanshuo"
+                android:paddingLeft="9dp"
+                android:drawableStart="@mipmap/chuanshuo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
         </RadioGroup>
 
-        <RadioGroup
-            android:id="@+id/typeGroup"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <!--随从-->
-            <RadioButton
-                android:id="@+id/MINION"
-                style="@style/RadioButtonStyle"
-                android:background="@mipmap/suicong"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <!--法术-->
-            <RadioButton
-                android:id="@+id/SPELL"
-                style="@style/RadioButtonStyle"
-                android:background="@mipmap/fashu"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <!--武器-->
-            <RadioButton
-                android:id="@+id/WEAPON"
-                style="@style/RadioButtonStyle"
-                android:background="@mipmap/wuqi"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <!--英雄-->
-            <RadioButton
-                android:id="@+id/HERO"
-                style="@style/RadioButtonStyle"
-                android:background="@mipmap/yingxiong"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-        </RadioGroup>
+            android:background="@color/colorPrimaryDark" />
 
         <GridView
             android:id="@+id/gridView"
@@ -263,15 +350,22 @@
             android:verticalSpacing="10dp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@mipmap/kapailiebiaobeijing"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/cardsName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/darkblue"
             android:hint="@string/newCards" />
 
         <ListView
@@ -293,13 +387,13 @@
 
             <Button
                 android:id="@+id/save"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="@string/save"/>
 
             <Button
                 android:id="@+id/reset"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="@string/reset"/>
         </LinearLayout>

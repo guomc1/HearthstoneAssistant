@@ -3,4 +3,20 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="darkviolet">#9400D3</color>
+    <color name="coral">#FF7F50</color>
+    <color name="darkorchid">#9932CC</color>
+    <color name="darkblue">#00008B</color>
+    <color name="lightgoldenrodyellow">#FAFAD2</color>
+    <color name="maroon">#800000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightest_gray">#80808FF0</color>
+    <drawable name="grey_btn_pressed">#ffff0000</drawable>
+    <drawable name="bg_text_normal">#ffffff00</drawable>
+    <color name="black">#000000</color>
+    <color name="purple">#800080</color>
+    <color name="blue">#0000FF</color>
+    <color name="touming">#00000000</color>
 </resources>
+
+

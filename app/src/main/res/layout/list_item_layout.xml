@@ -6,11 +6,13 @@
     <TextView
         android:id="@+id/num"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:textColor="@color/darkorchid"/>
 
     <TextView
         android:id="@+id/list_item"
         android:layout_width="wrap_content"
+        android:textColor="@color/darkorchid"
         android:layout_height="match_parent" />
 
 

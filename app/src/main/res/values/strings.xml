@@ -5,4 +5,6 @@
     <string name="reset">重置</string>
     <string name="newCards">新建卡组</string>
     <string name="cards_wh">卡组库</string>
+    <string name="cardlist">卡牌列表</string>
+    <string name="kazulist">卡组列表</string>
 </resources>

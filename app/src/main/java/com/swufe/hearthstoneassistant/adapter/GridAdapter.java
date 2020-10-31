@@ -1,8 +1,11 @@
 package com.swufe.hearthstoneassistant.adapter;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -23,6 +26,9 @@ import java.util.List;
 
 public class GridAdapter extends ArrayAdapter{
 
+    private AssetManager mgr;
+    private Typeface tf;
+
     private ImageLoader imageLoader = ImageLoader.getInstance();
 
     public GridAdapter(Context context, int resource, List<Card> list){
@@ -30,10 +36,13 @@ public class GridAdapter extends ArrayAdapter{
     }
 
     @Override
-    public View getView(final int position, final View convertView, ViewGroup parent){
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View itemView = convertView;
 
-        if(itemView == null){
+        mgr = getContext().getAssets();
+        tf = Typeface.createFromAsset(mgr, "fonts/yingbikaishu.ttf");
+
+        if (itemView == null) {
             itemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.item_layout,
                     parent,
@@ -44,6 +53,24 @@ public class GridAdapter extends ArrayAdapter{
         String id = card.getId();
         ImageView imageView = itemView.findViewById(R.id.pic);
         TextView textView = itemView.findViewById(R.id.cardName);
+        textView.setTypeface(tf);
+
+        System.out.println(card.getRarity());
+        if (card.getRarity().equals("FREE")) {
+            textView.setTextColor(Color.BLACK);
+        } else if (card.getRarity().equals("COMMON")) {
+            textView.setTextColor(Color.parseColor("#2F4F4F"));
+        } else if (card.getRarity().equals("RARE")){
+            textView.setTextColor(Color.BLUE);
+        }
+        else if(card.getRarity().equals("EPIC")) {
+            textView.setTextColor(Color.parseColor("#800080"));
+        }
+        else if(card.getRarity().equals("LEGENDARY")) {
+            textView.setTextColor(Color.parseColor("#00FF00"));
+            textView.setBackgroundResource(R.color.white);
+        }
+
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.mipmap.kabei)

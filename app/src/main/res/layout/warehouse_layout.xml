@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@mipmap/kapailiebiaobeijing"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/kazuliebiao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/kazulist"
+        android:textColor="@drawable/grey_btn_pressed"
+        android:textSize="45dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimaryDark" />
 
     <ListView
         android:id="@+id/warehouse_listView"
