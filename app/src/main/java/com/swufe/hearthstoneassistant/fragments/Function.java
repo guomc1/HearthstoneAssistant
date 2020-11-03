@@ -75,6 +75,7 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
     private AssetManager mgr;
     private Typeface tf;
     private RadioButton NEUTRALBut,cost0But,FREEBut;
+    private String VERSION = "1.0";
 
     @Nullable
     @Override
@@ -85,6 +86,15 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("用户须知")
+                .setMessage("  欢迎使用炉石传说助手，使用本应用可以快速方便地查找卡牌并组建卡组。\n" +
+                        "  从左上角的分类栏中进行卡牌分类，可以从职业、费用、稀有度三个维度进行分类；" +
+                        "单击卡牌可以将卡牌放入右边的临时卡组列表，注意一套卡组中最多只能存在两张同名卡牌；" +
+                        "点击临时列表中的卡牌名称可以将卡移回卡库，组建好卡组后在右上角输入卡组名称即可保存。\n" +
+                        "  首次进入应用加载卡牌较慢，请耐心等候。")
+                .create().show();
 
         fragmentManager = getFragmentManager();
         mgr = getActivity().getAssets();
@@ -342,29 +352,21 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
                 .build();
         ImageLoader.getInstance().init(config);//全局初始化此配置
 
-//        sp = getActivity().getSharedPreferences("card", Activity.MODE_PRIVATE);
-//        date = sp.getString("date","");
-//
-//        //当前日期
-//        Date now = new Date();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String nowDate = sdf.format(now);
-//
-//        if(date.equals(nowDate)){
-        CardManager rateManager = new CardManager(getContext());
-        cardsList = rateManager.findAll();
-//        MyThread myThread = new MyThread(list,getContext());
-//        Thread thread = new Thread(myThread);
-//        thread.start();
-        setGridView();
-//        }
-//        else{
-//            getData();
-//
-//            SharedPreferences.Editor editor = sp.edit();
-//            editor.putString("date",nowDate);
-//            editor.apply();
-//        }
+        sp = getActivity().getSharedPreferences("version", Activity.MODE_PRIVATE);
+        String version = sp.getString("v","");
+
+        if(version.equals(VERSION)){
+            CardManager rateManager = new CardManager(getContext());
+            cardsList = rateManager.findAll();
+            setGridView();
+        }
+        else{
+            getData();
+
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("v",VERSION);
+            editor.apply();
+        }
     }
 
 
@@ -392,13 +394,13 @@ public class Function extends Fragment implements Runnable, AdapterView.OnItemCl
                     }
 
 
-                    gridAdapter = new GridAdapter(getContext(),R.layout.item_layout,list);
-                    gridView.setAdapter(gridAdapter);
+                    cardsList = list;
+                    setGridView();
 
                     //存于数据库
-//                    CardManager cardManager = new CardManager(getContext());
-//                    cardManager.deleteAll();
-//                    cardManager.addAll(list);
+                    CardManager cardManager = new CardManager(getContext());
+                    cardManager.deleteAll();
+                    cardManager.addAll(list);
 
                 }
                 super.handleMessage(msg);
